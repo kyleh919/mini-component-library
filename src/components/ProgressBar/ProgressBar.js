@@ -30,13 +30,22 @@ const BarWrapper = styled.div`
   width: 370px;
 `;
 
+const ProgressIndicator = styled.div`
+  background: ${COLORS.primary};
+
+  width: 100px;
+  height: 12px;
+`;
+
 const ProgressBar = ({ value, size = "medium" }) => {
   const sizeStyles = SIZES[size];
 
   return (
     <>
       <Status>{value}</Status>
-      <BarWrapper style={{ ...sizeStyles }}></BarWrapper>
+      <BarWrapper style={{ ...sizeStyles }}>
+        <ProgressIndicator></ProgressIndicator>
+      </BarWrapper>
     </>
   );
 };
