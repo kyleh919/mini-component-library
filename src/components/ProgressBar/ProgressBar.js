@@ -8,12 +8,15 @@ import VisuallyHidden from "../VisuallyHidden";
 const SIZES = {
   small: {
     height: "8px",
+    borderRadius: "4px",
   },
   medium: {
     height: "12px",
+    borderRadius: "4px",
   },
   large: {
     height: "24px",
+    borderRadius: "8px",
   },
 };
 
@@ -24,7 +27,6 @@ const Status = styled.strong`
 const BarWrapper = styled.div`
   display: inline-block;
   background: ${COLORS.transparentGray15};
-  border-radius: 8px;
   box-shadow: inset 0px 2px 4px ${COLORS.transparentGray35};
 
   width: 370px;
