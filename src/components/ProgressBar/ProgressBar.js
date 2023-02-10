@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { COLORS } from "../../constants";
 import VisuallyHidden from "../VisuallyHidden";
 
-const SIZES = {
+const WRAPPER_SIZES = {
   small: {
     height: "8px",
     borderRadius: "4px",
@@ -17,6 +17,19 @@ const SIZES = {
   large: {
     height: "24px",
     borderRadius: "8px",
+    padding: "4px",
+  },
+};
+
+const INDICATOR_SIZES = {
+  small: {
+    height: "8px",
+  },
+  medium: {
+    height: "12px",
+  },
+  large: {
+    height: "16px",
   },
 };
 
@@ -40,13 +53,16 @@ const ProgressIndicator = styled.div`
 `;
 
 const ProgressBar = ({ value, size = "medium" }) => {
-  const sizeStyles = SIZES[size];
+  const wrapperSizeStyles = WRAPPER_SIZES[size];
+  const indicatorSizeStyles = INDICATOR_SIZES[size];
 
   return (
     <>
       <Status>{value}</Status>
-      <BarWrapper style={{ ...sizeStyles }}>
-        <ProgressIndicator></ProgressIndicator>
+      <BarWrapper style={{ ...wrapperSizeStyles }}>
+        <ProgressIndicator
+          style={{ ...indicatorSizeStyles }}
+        ></ProgressIndicator>
       </BarWrapper>
     </>
   );
