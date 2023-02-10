@@ -47,6 +47,10 @@ const BarWrapper = styled.div`
 
 const BaseProgressIndicator = styled.div`
   background: ${COLORS.primary};
+  border-start-start-radius: 4px;
+  border-start-end-radius: ${(props) => `${props.value === 100 ? 4 : 0}px`};
+  border-end-start-radius: 4px;
+  border-end-end-radius: ${(props) => `${props.value === 100 ? 4 : 0}px`};
 
   width: ${(props) => `${(props.value * 370) / 100}px`};
   height: 12px;
