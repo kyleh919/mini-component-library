@@ -82,10 +82,7 @@ const ProgressBar = ({ value, size = "medium" }) => {
       aria-valuemax="100"
     >
       <VisuallyHidden>{value}%</VisuallyHidden>
-      <StyledIndicator
-        style={{ ...indicatorSizeStyles }}
-        value={value}
-      ></StyledIndicator>
+      <StyledIndicator style={{ ...indicatorSizeStyles }} value={value} />
     </BarWrapper>
   );
 };
