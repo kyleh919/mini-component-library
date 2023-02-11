@@ -80,7 +80,14 @@ const ProgressBar = ({ value, size = "medium" }) => {
   return (
     <>
       <Status>{value}</Status>
-      <BarWrapper style={{ ...wrapperSizeStyles }}>
+      <BarWrapper
+        style={{ ...wrapperSizeStyles }}
+        role="progressbar"
+        aria-valuenow={value}
+        aria-labelledby="Status"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      >
         <StyledIndicator
           style={{ ...indicatorSizeStyles }}
           value={value}
