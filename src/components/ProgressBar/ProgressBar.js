@@ -74,21 +74,19 @@ const ProgressBar = ({ value, size = "medium" }) => {
   }
 
   return (
-    <>
+    <BarWrapper
+      style={{ ...wrapperSizeStyles }}
+      role="progressbar"
+      aria-valuenow={value}
+      aria-valuemin="0"
+      aria-valuemax="100"
+    >
       <VisuallyHidden>{value}%</VisuallyHidden>
-      <BarWrapper
-        style={{ ...wrapperSizeStyles }}
-        role="progressbar"
-        aria-valuenow={value}
-        aria-valuemin="0"
-        aria-valuemax="100"
-      >
-        <StyledIndicator
-          style={{ ...indicatorSizeStyles }}
-          value={value}
-        ></StyledIndicator>
-      </BarWrapper>
-    </>
+      <StyledIndicator
+        style={{ ...indicatorSizeStyles }}
+        value={value}
+      ></StyledIndicator>
+    </BarWrapper>
   );
 };
 
