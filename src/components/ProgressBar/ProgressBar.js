@@ -33,10 +33,6 @@ const INDICATOR_SIZES = {
   },
 };
 
-const Status = styled.strong`
-  margin-right: 64px;
-`;
-
 const BarWrapper = styled.div`
   display: inline-block;
   background: ${COLORS.transparentGray15};
@@ -79,12 +75,11 @@ const ProgressBar = ({ value, size = "medium" }) => {
 
   return (
     <>
-      <Status>{value}</Status>
+      <VisuallyHidden>{value}%</VisuallyHidden>
       <BarWrapper
         style={{ ...wrapperSizeStyles }}
         role="progressbar"
         aria-valuenow={value}
-        aria-labelledby="Status"
         aria-valuemin="0"
         aria-valuemax="100"
       >
