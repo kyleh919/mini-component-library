@@ -34,11 +34,8 @@ const INDICATOR_SIZES = {
 };
 
 const BarWrapper = styled.div`
-  display: inline-block;
   background: ${COLORS.transparentGray15};
   box-shadow: inset 0px 2px 4px ${COLORS.transparentGray35};
-
-  width: 370px;
 `;
 
 const BaseProgressIndicator = styled.div`
@@ -48,7 +45,7 @@ const BaseProgressIndicator = styled.div`
   border-end-start-radius: 4px;
   border-end-end-radius: ${(props) => `${props.value === 100 ? 4 : 0}px`};
 
-  width: ${(props) => `${(props.value * 370) / 100}px`};
+  width: ${(props) => `${props.value}%`};
   height: 12px;
 `;
 
@@ -56,12 +53,12 @@ const BaseProgressIndicator = styled.div`
  * This allows the width calculation mindful of padding to only apply for the large size ProgressBar
  */
 const LargeProgressIndicator = styled(BaseProgressIndicator)`
-  width: ${(props) =>
+  /* width: ${(props) =>
     `${
       (props.value * 370) / 100 - 8 < 0
         ? props.value
         : (props.value * 370) / 100 - 8
-    }px`};
+    }px`}; */
 `;
 
 const ProgressBar = ({ value, size = "medium" }) => {
