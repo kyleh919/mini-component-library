@@ -9,21 +9,24 @@ const SIZES = {
   small: {
     height: 8,
     padding: 0,
+    borderRadius: 4,
   },
   medium: {
     height: 12,
     padding: 0,
+    borderRadius: 4,
   },
   large: {
     height: 16,
     padding: 4,
+    borderRadius: 8,
   },
 };
 
 const Wrapper = styled.div`
   background: ${COLORS.transparentGray15};
   box-shadow: inset 0px 2px 4px ${COLORS.transparentGray35};
-  border-radius: 4px;
+  border-radius: var(--borderRadius);
   padding: var(--padding);
 `;
 
@@ -52,6 +55,7 @@ const ProgressBar = ({ value, size = "medium" }) => {
     <Wrapper
       style={{
         "--padding": styles.padding + "px",
+        "--borderRadius": styles.borderRadius + "px",
       }}
       role="progressbar"
       aria-valuenow={value}
