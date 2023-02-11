@@ -36,14 +36,13 @@ const INDICATOR_SIZES = {
 const BarWrapper = styled.div`
   background: ${COLORS.transparentGray15};
   box-shadow: inset 0px 2px 4px ${COLORS.transparentGray35};
+
+  /* trim off corners when progress bar is near full */
+  overflow: hidden;
 `;
 
 const BaseProgressIndicator = styled.div`
   background: ${COLORS.primary};
-  border-start-start-radius: 4px;
-  border-start-end-radius: ${(props) => `${props.value === 100 ? 4 : 0}px`};
-  border-end-start-radius: 4px;
-  border-end-end-radius: ${(props) => `${props.value === 100 ? 4 : 0}px`};
 
   width: ${(props) => `${props.value}%`};
   height: 12px;
