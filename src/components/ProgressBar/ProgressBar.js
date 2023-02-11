@@ -20,12 +20,15 @@ const SIZES = {
   },
 };
 
-const BarWrapper = styled.div`
+const Wrapper = styled.div`
   background: ${COLORS.transparentGray15};
   box-shadow: inset 0px 2px 4px ${COLORS.transparentGray35};
   border-radius: 4px;
   padding: var(--padding);
+`;
 
+const BarWrapper = styled.div`
+  border-radius: 4px;
   /* trim off corners when progress bar is near full */
   overflow: hidden;
 `;
@@ -46,7 +49,7 @@ const ProgressBar = ({ value, size = "medium" }) => {
   }
 
   return (
-    <BarWrapper
+    <Wrapper
       style={{
         "--padding": styles.padding + "px",
       }}
@@ -56,14 +59,16 @@ const ProgressBar = ({ value, size = "medium" }) => {
       aria-valuemax="100"
     >
       <VisuallyHidden>{value}%</VisuallyHidden>
-      <Indicator
-        style={{
-          "--width": value + "%",
-          "--height": styles.height + "px",
-        }}
-        value={value}
-      />
-    </BarWrapper>
+      <BarWrapper>
+        <Indicator
+          style={{
+            "--width": value + "%",
+            "--height": styles.height + "px",
+          }}
+          value={value}
+        />
+      </BarWrapper>
+    </Wrapper>
   );
 };
 
