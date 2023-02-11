@@ -5,37 +5,26 @@ import styled from "styled-components";
 import { COLORS } from "../../constants";
 import VisuallyHidden from "../VisuallyHidden";
 
-const WRAPPER_SIZES = {
+const SIZES = {
   small: {
-    height: "8px",
-    borderRadius: "4px",
+    height: 8,
+    padding: 0,
   },
   medium: {
-    height: "12px",
-    borderRadius: "4px",
+    height: 12,
+    padding: 0,
   },
   large: {
-    height: "24px",
-    borderRadius: "8px",
-    padding: "4px",
-  },
-};
-
-const INDICATOR_SIZES = {
-  small: {
-    height: "8px",
-  },
-  medium: {
-    height: "12px",
-  },
-  large: {
-    height: "16px",
+    height: 16,
+    padding: 4,
   },
 };
 
 const BarWrapper = styled.div`
   background: ${COLORS.transparentGray15};
   box-shadow: inset 0px 2px 4px ${COLORS.transparentGray35};
+  border-radius: 4px;
+  padding: var(--padding);
 
   /* trim off corners when progress bar is near full */
   overflow: hidden;
@@ -44,8 +33,9 @@ const BarWrapper = styled.div`
 const BaseProgressIndicator = styled.div`
   background: ${COLORS.primary};
 
-  width: ${(props) => `${props.value}%`};
-  height: 12px;
+  width: var(--width);
+  height: var(--height);
+  border-radius: 4px 0 0 4px;
 `;
 
 /**
@@ -61,8 +51,11 @@ const LargeProgressIndicator = styled(BaseProgressIndicator)`
 `;
 
 const ProgressBar = ({ value, size = "medium" }) => {
-  const wrapperSizeStyles = WRAPPER_SIZES[size];
-  const indicatorSizeStyles = INDICATOR_SIZES[size];
+  const styles = SIZES[size];
+
+  if (!styles) {
+    throw new Error(`Unknown size passed to ProgressBar: ${size}.`);
+  }
 
   let StyledIndicator = BaseProgressIndicator;
   if (size === "large") {
@@ -71,14 +64,22 @@ const ProgressBar = ({ value, size = "medium" }) => {
 
   return (
     <BarWrapper
-      style={{ ...wrapperSizeStyles }}
+      style={{
+        "--padding": styles.padding + "px",
+      }}
       role="progressbar"
       aria-valuenow={value}
       aria-valuemin="0"
       aria-valuemax="100"
     >
       <VisuallyHidden>{value}%</VisuallyHidden>
-      <StyledIndicator style={{ ...indicatorSizeStyles }} value={value} />
+      <StyledIndicator
+        style={{
+          "--width": value + "%",
+          "--height": styles.height + "px",
+        }}
+        value={value}
+      />
     </BarWrapper>
   );
 };
