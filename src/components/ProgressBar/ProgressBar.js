@@ -30,7 +30,7 @@ const BarWrapper = styled.div`
   overflow: hidden;
 `;
 
-const BaseProgressIndicator = styled.div`
+const Indicator = styled.div`
   background: ${COLORS.primary};
 
   width: var(--width);
@@ -38,28 +38,11 @@ const BaseProgressIndicator = styled.div`
   border-radius: 4px 0 0 4px;
 `;
 
-/**
- * This allows the width calculation mindful of padding to only apply for the large size ProgressBar
- */
-const LargeProgressIndicator = styled(BaseProgressIndicator)`
-  /* width: ${(props) =>
-    `${
-      (props.value * 370) / 100 - 8 < 0
-        ? props.value
-        : (props.value * 370) / 100 - 8
-    }px`}; */
-`;
-
 const ProgressBar = ({ value, size = "medium" }) => {
   const styles = SIZES[size];
 
   if (!styles) {
     throw new Error(`Unknown size passed to ProgressBar: ${size}.`);
-  }
-
-  let StyledIndicator = BaseProgressIndicator;
-  if (size === "large") {
-    StyledIndicator = LargeProgressIndicator;
   }
 
   return (
@@ -73,7 +56,7 @@ const ProgressBar = ({ value, size = "medium" }) => {
       aria-valuemax="100"
     >
       <VisuallyHidden>{value}%</VisuallyHidden>
-      <StyledIndicator
+      <Indicator
         style={{
           "--width": value + "%",
           "--height": styles.height + "px",
