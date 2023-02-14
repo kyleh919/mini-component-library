@@ -29,6 +29,11 @@ const NativeSelect = styled.select`
 
 const PresentationalSelect = styled.div`
   background: ${COLORS.transparentGray15};
+
+  ${NativeSelect}:focus + & {
+    outline: 2px dotted #4374cb;
+    outline: 5px auto -webkit-focus-ring-color;
+  }
 `;
 
 const ValueDisplay = styled.div`
