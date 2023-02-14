@@ -48,7 +48,7 @@ const Select = ({ label, value, onChange, children }) => {
       </NativeSelect>
       <PresentationalSelect>
         <ValueDisplay>{displayedValue}</ValueDisplay>
-        <Icon id="chevron-down" style={{ display: "inline-block" }} />
+        <Icon id="chevron-down" style={{ display: "inline-block" }} size={24} />
       </PresentationalSelect>
     </Wrapper>
   );
