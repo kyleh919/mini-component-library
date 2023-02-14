@@ -10,10 +10,6 @@ const Wrapper = styled.div`
   width: max-content;
   color: ${COLORS.gray700};
 
-  &:hover {
-    color: ${COLORS.black};
-  }
-
   & > * {
     padding: 12px 16px;
     border-radius: 8px;
@@ -33,6 +29,10 @@ const PresentationalSelect = styled.div`
   ${NativeSelect}:focus + & {
     outline: 2px dotted #4374cb;
     outline: 5px auto -webkit-focus-ring-color;
+  }
+
+  ${NativeSelect}:hover + & {
+    color: ${COLORS.black};
   }
 `;
 
