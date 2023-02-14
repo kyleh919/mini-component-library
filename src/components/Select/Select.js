@@ -29,7 +29,10 @@ const Select = ({ label, value, onChange, children }) => {
       <NativeSelect value={value} onChange={onChange}>
         {children}
       </NativeSelect>
-      <PresentationalSelect>{displayedValue}</PresentationalSelect>
+      <PresentationalSelect>
+        {displayedValue}
+        <Icon id="chevron-down" style={{ display: "inline-block" }} />
+      </PresentationalSelect>
     </Wrapper>
   );
 };
