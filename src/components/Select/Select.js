@@ -8,6 +8,11 @@ import { getDisplayedValue } from "./Select.helpers";
 const Wrapper = styled.div`
   position: relative;
   width: fit-content;
+
+  &:hover {
+    color: ${COLORS.black};
+  }
+
   & > * {
     padding: 12px 16px;
   }
@@ -15,19 +20,19 @@ const Wrapper = styled.div`
 
 const NativeSelect = styled.select`
   position: absolute;
-  opacity: 0.5;
+  opacity: 0;
   height: 100%;
   width: 100%;
 `;
 
 const ValueDisplay = styled.div`
-  background-color: blue;
+  /* background-color: blue; */
   display: inline-block;
   margin-right: 24px;
 `;
 
 const PresentationalSelect = styled.div`
-  background-color: red;
+  /* background-color: red; */
 `;
 
 const Select = ({ label, value, onChange, children }) => {
