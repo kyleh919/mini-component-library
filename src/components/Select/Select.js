@@ -7,7 +7,8 @@ import { getDisplayedValue } from "./Select.helpers";
 
 const Wrapper = styled.div`
   position: relative;
-  width: fit-content;
+  width: max-content;
+  color: ${COLORS.gray700};
 
   &:hover {
     color: ${COLORS.black};
@@ -15,6 +16,7 @@ const Wrapper = styled.div`
 
   & > * {
     padding: 12px 16px;
+    border-radius: 8px;
   }
 `;
 
@@ -25,14 +27,15 @@ const NativeSelect = styled.select`
   width: 100%;
 `;
 
-const ValueDisplay = styled.div`
-  /* background-color: blue; */
-  display: inline-block;
-  margin-right: 24px;
-`;
-
 const PresentationalSelect = styled.div`
   /* background-color: red; */
+  background: ${COLORS.transparentGray15};
+`;
+
+const ValueDisplay = styled.div`
+  display: inline-block;
+  vertical-align: super;
+  margin-right: 24px;
 `;
 
 const Select = ({ label, value, onChange, children }) => {
