@@ -48,6 +48,7 @@ const IconWrapper = styled.div`
   margin: auto;
   width: var(--size);
   height: var(--size);
+  pointer-events: none;
 `;
 
 const Select = ({ label, value, onChange, children }) => {
