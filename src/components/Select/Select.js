@@ -28,14 +28,21 @@ const NativeSelect = styled.select`
 `;
 
 const PresentationalSelect = styled.div`
-  /* background-color: red; */
   background: ${COLORS.transparentGray15};
 `;
 
 const ValueDisplay = styled.div`
-  display: inline-block;
-  vertical-align: super;
-  margin-right: 24px;
+  padding-right: 24px;
+`;
+
+const IconWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  width: var(--size);
+  height: var(--size);
 `;
 
 const Select = ({ label, value, onChange, children }) => {
@@ -48,7 +55,9 @@ const Select = ({ label, value, onChange, children }) => {
       </NativeSelect>
       <PresentationalSelect>
         <ValueDisplay>{displayedValue}</ValueDisplay>
-        <Icon id="chevron-down" style={{ display: "inline-block" }} size={24} />
+        <IconWrapper style={{ "--size": 24 + "px" }}>
+          <Icon id="chevron-down" size={24} />
+        </IconWrapper>
       </PresentationalSelect>
     </Wrapper>
   );
