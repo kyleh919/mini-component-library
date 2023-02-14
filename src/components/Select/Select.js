@@ -12,13 +12,11 @@ const Wrapper = styled.div`
 const NativeSelect = styled.select`
   position: absolute;
   opacity: 0.5;
-  width: 100%;
   height: 100%;
 `;
 
 const PresentationalSelect = styled.div`
   background-color: red;
-  height: 100px;
 `;
 
 const Select = ({ label, value, onChange, children }) => {
