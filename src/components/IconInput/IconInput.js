@@ -1,3 +1,4 @@
+import { colors } from "@storybook/node-logger";
 import React from "react";
 import styled from "styled-components";
 
@@ -6,8 +7,14 @@ import { COLORS } from "../../constants";
 import Icon from "../Icon";
 import VisuallyHidden from "../VisuallyHidden";
 
-const Wrapper = styled.div`
+const Wrapper = styled.label`
+  color: ${COLORS.gray700};
+
   position: relative;
+
+  &:hover {
+    color: ${COLORS.black};
+  }
 `;
 
 const IconWrapper = styled.div`
@@ -15,12 +22,11 @@ const IconWrapper = styled.div`
   top: 0;
   bottom: 0;
   left: 2px;
-  color: ${COLORS.gray700};
-  pointer-events: none;
+  margin: auto;
 `;
 
 const StyledInput = styled.input`
-  color: ${COLORS.gray700};
+  color: inherit;
   font-size: var(--font-size);
   font-weight: 700;
   line-height: var(--line-height);
@@ -86,16 +92,3 @@ const IconInput = ({ label, icon, width = 250, size, placeholder }) => {
 };
 
 export default IconInput;
-
-/**
- * Requirements
- * [ ] Sizes
- *    [ ] Small
- *    [ ] Large
- * [X] Placeholder text size
- * [X] Ability to adjust width
- * [ ] Icon support
- * [ ] Focus
- * [ ] Hover
- * [X] `VisuallyHidden` support
- */
