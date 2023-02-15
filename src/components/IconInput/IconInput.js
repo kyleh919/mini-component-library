@@ -36,12 +36,23 @@ const StyledInput = styled.input`
   }
 `;
 
+const SIZES = {
+  small: {
+    iconStrokeWidth: 1,
+  },
+  large: {
+    iconStrokeWidth: 2,
+  },
+};
+
 const IconInput = ({ label, icon, width = 250, size, placeholder }) => {
+  const styles = SIZES[size];
+
   return (
     <Wrapper>
       <VisuallyHidden>{label}</VisuallyHidden>
       <IconWrapper>
-        <Icon id={icon} size={16} strokeWidth={size === "small" ? 1 : 2} />
+        <Icon id={icon} size={16} strokeWidth={styles.iconStrokeWidth} />
       </IconWrapper>
       <StyledInput
         type="text"
@@ -53,3 +64,16 @@ const IconInput = ({ label, icon, width = 250, size, placeholder }) => {
 };
 
 export default IconInput;
+
+/**
+ * Requirements
+ * [ ] Sizes
+ *    [ ] Small
+ *    [ ] Large
+ * [X] Placeholder text size
+ * [X] Ability to adjust width
+ * [ ] Icon support
+ * [ ] Focus
+ * [ ] Hover
+ * [X] `VisuallyHidden` support
+ */
