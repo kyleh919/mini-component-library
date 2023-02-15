@@ -10,6 +10,7 @@ import VisuallyHidden from "../VisuallyHidden";
 const Wrapper = styled.label`
   color: ${COLORS.gray700};
 
+  display: block;
   position: relative;
 
   &:hover {
@@ -21,8 +22,8 @@ const IconWrapper = styled.div`
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 2px;
-  margin: auto;
+  margin: auto 0;
+  height: var(--height);
 `;
 
 const StyledInput = styled.input`
@@ -35,7 +36,8 @@ const StyledInput = styled.input`
   border-bottom: 2px solid black;
 
   width: var(--width);
-  padding-left: var(--padding-left);
+  height: var(--height);
+  padding-left: var(--height);
 
   &::placeholder {
     color: ${COLORS.gray500};
@@ -54,13 +56,15 @@ const SIZES = {
     fontSize: `${14 / 16}rem`,
     lineHeight: `${16 / 16}rem`,
     inputPadding: 24 + "px",
+    height: `${24 / 16}rem`,
   },
   large: {
     iconStrokeWidth: 2,
-    iconSize: 20,
+    iconSize: 24,
     fontSize: `${18 / 16}rem`,
     lineHeight: `${21 / 16}rem`,
     inputPadding: 32 + "px",
+    height: `${36 / 16}rem`,
   },
 };
 
@@ -70,7 +74,7 @@ const IconInput = ({ label, icon, width = 250, size, placeholder }) => {
   return (
     <Wrapper>
       <VisuallyHidden>{label}</VisuallyHidden>
-      <IconWrapper>
+      <IconWrapper style={{ "--height": styles.iconSize + "px" }}>
         <Icon
           id={icon}
           size={styles.iconSize}
@@ -82,6 +86,7 @@ const IconInput = ({ label, icon, width = 250, size, placeholder }) => {
         placeholder={placeholder}
         style={{
           "--width": width + "px",
+          "--height": styles.height,
           "--line-height": styles.lineHeight,
           "--font-size": styles.fontSize,
           "--padding-left": styles.inputPadding,
