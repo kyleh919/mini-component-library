@@ -16,6 +16,7 @@ const IconWrapper = styled.div`
   bottom: 0;
   left: 2px;
   color: ${COLORS.gray700};
+  pointer-events: none;
 `;
 
 const StyledInput = styled.input`
