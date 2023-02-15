@@ -35,6 +35,10 @@ const StyledInput = styled.input`
     color: ${COLORS.gray500};
     font-weight: 400;
   }
+
+  &:focus {
+    outline-offset: 2px;
+  }
 `;
 
 const SIZES = {
